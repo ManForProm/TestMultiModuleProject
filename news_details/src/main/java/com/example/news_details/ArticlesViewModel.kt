@@ -12,8 +12,8 @@ class ArticlesViewModel(private val newsService: NewsService): ViewModel() {
         DaggerNewsDetailsComponent.builder().build()
     }
 
-    val articles = flow<List<Article>> {
-        newsService.topHeadlines().Articles
+    val articles = flow {
+       emit(newsService.topHeadlines().Articles)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
 }

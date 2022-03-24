@@ -11,7 +11,7 @@ private const val HEADER_API_KEY = "X-API-KEY"
 
 interface NewsService {
 
-    @GET("top-headlines")
+    @GET("v2/everything?q=a")
     suspend fun topHeadlines(): Articles
 
 }
